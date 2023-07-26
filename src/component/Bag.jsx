@@ -3,7 +3,11 @@ import {FaShoppingBasket,FaMinus,FaPlus} from 'react-icons/fa'
 import {CiCircleRemove} from 'react-icons/ci'
 import { useGlobalContext } from '../context';
 export default function Bag() {
-    const {cart,total,clearCart} = useGlobalContext();
+    const {cart,total,clearCart,removeItem,increaseItem,decreaseItem} = useGlobalContext();
+
+    if(cart.length==0){
+        return(<div className="empty-cart">Your cart is currently empty.</div>)
+    }
 
   return (
     <main>
@@ -13,24 +17,24 @@ export default function Bag() {
             {cart.map(item=>{
                 const {id, title,price,img,amount}=item;
                 return(
-                    <>
-                    <section key={id} className="each-item">
+                    <div key={id}>
+                    <section className="each-item">
                         <img src={img} alt={title} className='product-image'/>
                         <section className="description">
                         <h2>{title}</h2>
                             <section className='add-remove'>
-                                <FaMinus/> <hr className='vertical-bar'/>
+                                <FaMinus onClick={()=>decreaseItem(id)}/> <hr className='vertical-bar'/>
                                 {amount} <hr className='vertical-bar'/>
-                                <FaPlus/>
+                                <FaPlus onClick={()=>increaseItem(id)}/>
                             </section>
                         </section>
-                        <p>$ {price}</p>
+                        <p>$ {(price*amount).toFixed(2)}</p>
                         <section className='remove-section'>
-                            <CiCircleRemove/>
+                            <CiCircleRemove onClick={()=>removeItem(id)}/>
                         </section>
                     </section>
                     <hr style={{width:'100%',height:'2px', background:'var(--blue)'}}/>
-                    </>
+                    </div>
                 )
             })}
         </div>
