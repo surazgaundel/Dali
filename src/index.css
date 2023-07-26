@@ -4,6 +4,7 @@
   font-family: 'Nunito', sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  font-size: 14px;
 
   color-scheme: light dark;
   --white:#ffffff;
@@ -24,7 +25,7 @@
 
 .nav{
   box-shadow: 5px 5px 6px var(--lightblue);
-  margin-bottom: 2rem;
+  margin-bottom: .5rem;
   display: flex;
   justify-content: space-between;
 
@@ -41,13 +42,13 @@
     position: relative;
 
 
-    .cart{
+    & .cart{
       scale: 2;
       padding: 0.1rem;
       margin-top: 1.5rem;
     }
 
-    .item-number{
+    & .item-number{
       position: absolute;
       top:-0.5rem;  
       left:0.9rem;
@@ -55,18 +56,127 @@
       padding:0 0.2rem;
       border-radius: 10%;
       color: var(--white);
-
     }
   }
 
 }
 
-@media (max-width:768px) {
-  .nav{
-    width: 100%;
-  }
-  .nav-logo{
-    width:40%;
+/* loading */
+.loading{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height: 100vh;
+}
+
+/* bag */
+
+.container{
+  margin-top:2rem;
+  /* border:solid red; */
+  padding:2rem;
+  width: 80%;
+  margin: auto;
+  
+  & h1{
+    text-align:center;
   }
 }
 
+
+.cart-item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.each-item{
+  display: flex;
+  align-items:center;
+  justify-content: space-around;
+  margin:0.5rem 0;
+  gap:3rem;
+  
+  & .product-image{
+    height: 7rem;
+    width: 7rem;
+    object-fit: cover;
+    border-radius: 1rem;
+    box-shadow: 1px 1px 10px var(--lightblue);
+  }
+  
+  & p{
+    font-weight:500;
+  }
+  
+  & .description{
+    display: flex;
+    align-items: center;
+
+    & h2{
+      width:15rem;
+    }
+  }
+  & .remove-section{
+    cursor: pointer;
+    scale: 2;
+    
+    &:hover{
+      color:red;
+    }
+
+  }
+  
+}
+.add-remove{
+  display:flex;
+  width:7rem;
+  height: 5vh;
+  border-radius: 5rem;
+  align-items: center;
+  justify-content: space-around;
+  border:0.1rem solid var(--blue);
+  padding:0 0.15rem;
+  margin-left:5rem;
+  cursor: pointer;
+  
+  & .vertical-bar{
+    height: 2rem;
+    margin:0;
+    padding:0;
+  }
+}
+
+
+
+  @media (max-width:768px) {
+    :root{
+      font-size: 10px;
+    }
+    .nav{
+      width: 100%;
+    }
+    .nav-logo{
+      width:40%;
+    }
+  }
+
+  /* clear button */
+  .clear-btn{
+    color:rgba(255, 0, 0, 0.84);
+    border-color: #ff000067;
+    background-color: var(--white);
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    border-radius:0.2rem;
+    text-align: center;
+    width: 50%;
+    margin-left:25%;
+    cursor: pointer;
+
+    &:hover{
+      background-color:red;;
+      color:var(--white);
+    }
+  }
