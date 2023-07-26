@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { createContext, useReducer,useContext } from 'react'
+import React, { createContext, useReducer,useContext, useEffect } from 'react'
 import Data from './data.js';
 import reducer from './reducer';
 
@@ -27,6 +27,10 @@ const AppProvider=({children})=>{
     const decreaseItem =(id)=>{
         dispatch({type:'DECREASE',payload:id})
     }
+
+    useEffect(()=>{
+        dispatch({type:'GET_TOTAL'})
+    },[state.cart])
     return(
         <AppContext.Provider
         value={{
