@@ -1,7 +1,10 @@
 
-
 # DALI
 An eCommerce platform that functions as a cart system provides a seamless and efficient shopping experience for customers. This type of platform integrates a virtual shopping cart where users can collect and manage their desired items before proceeding to checkout. The cart system serves as a central hub where customers can review their selected products, modify quantities, and remove items if needed.
+
+## Demo
+https://bucketdali.netlify.app/
+
 
 ## Installation
 
